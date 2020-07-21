@@ -10,7 +10,7 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne( cascade = {CascadeType.ALL})
     @JoinColumn(name = "supporter_id", nullable = true)
     private Supporter supporter;
 
@@ -22,6 +22,7 @@ public class Member {
         this.supporter = supporter;
         this.first_name = first_name;
         this.last_name = last_name;
+        this.nickname = nickname;
     }
 
     public Member() {
