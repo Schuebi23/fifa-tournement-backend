@@ -3,6 +3,7 @@ package com.example.fifatournement.model;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "game")
 public class Game {
@@ -10,8 +11,6 @@ public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-
 
     private int score_home;
     private int score_away;
