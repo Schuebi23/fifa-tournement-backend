@@ -12,6 +12,10 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "event_id", nullable = true)
+    private Event event;
+
     private int score_home;
     private int score_away;
     private String team_home;
@@ -19,11 +23,12 @@ public class Game {
     private String team_away;
 
 
-   public Game(int score_home, int score_away, String team_home, String team_away){
+   public Game(int score_home, int score_away, String team_home, String team_away, Event event){
        this.score_home = score_home;
        this.score_away = score_away;
        this.team_home = team_home;
        this.team_away = team_away;
+       this.event = event;
    }
 
     public Game() {
@@ -70,4 +75,11 @@ public class Game {
         this.team_away = team_away;
     }
 
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
 }
