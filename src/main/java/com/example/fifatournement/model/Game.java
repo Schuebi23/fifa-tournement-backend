@@ -1,8 +1,6 @@
 package com.example.fifatournement.model;
 
-
 import javax.persistence.*;
-
 
 @Entity
 @Table(name = "game")
@@ -19,7 +17,6 @@ public class Game {
     private int score_home;
     private int score_away;
     private String team_home;
-
     private String team_away;
 
 
