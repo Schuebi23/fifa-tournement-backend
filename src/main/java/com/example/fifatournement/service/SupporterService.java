@@ -21,7 +21,7 @@ public class SupporterService {
 
     //  Get a specific Supporter Club
     public Supporter getSupporter(Integer supporterId){
-        return supporterRepository.findById(supporterId).orElseThrow(() -> new RuntimeException());
+        return supporterRepository.findById(supporterId).orElseThrow(() -> new RuntimeException("Error loading supporter Club"));
     }
 
     // delete a Supporter club

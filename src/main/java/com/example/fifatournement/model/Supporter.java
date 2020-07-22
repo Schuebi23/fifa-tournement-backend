@@ -3,6 +3,7 @@ package com.example.fifatournement.model;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "supporter")
@@ -16,6 +17,9 @@ public class Supporter {
     private String name;
 
     private int numberOfShots;
+
+    @OneToMany(mappedBy = "supporter")
+    private List<Member> members;
 
     public Supporter(@NotNull String name, int numberOfShots){
         this.name = name;
