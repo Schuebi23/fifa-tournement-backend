@@ -27,6 +27,8 @@ public class Supporter {
     }
 
     public Supporter() {
+
+
     }
 
     public String getName() {
@@ -45,5 +47,12 @@ public class Supporter {
         this.numberOfShots = numberOfShots;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
 }

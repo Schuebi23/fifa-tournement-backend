@@ -15,6 +15,7 @@ public class MemberService {
 
     @Autowired
     IMemberRepository memberRepository;
+    @Autowired
     ISupporterRepository supporterRepository;
 
     //    Get All members

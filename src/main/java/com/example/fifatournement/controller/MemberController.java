@@ -44,7 +44,10 @@ public class MemberController {
 
     @PostMapping("/member/{supporterId}/add")
     public Member addMember(@PathVariable Integer supporterId ,@Valid @RequestBody Member member) {
-                    member.setSupporter(supporterService.getSupporter(supporterId));
+
+                    //Die zile bruchsch ni setzisch ja dr supporter im MemberService ine
+                    //member.setSupporter(supporterService.getSupporter(supporterId));
+
                     return memberService.addMember( supporterId, member);
     }
 }
