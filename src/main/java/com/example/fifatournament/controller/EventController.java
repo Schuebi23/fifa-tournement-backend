@@ -5,6 +5,7 @@ import com.example.fifatournament.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -29,11 +30,16 @@ public class EventController {
         return eventService.getEvent(eventId);
     }
 
-    // delete a member
+    // delete an Event
     @DeleteMapping("/event/{eventId}")
-    public void deleteGame(
+    public void deleteEvent(
             @PathVariable Integer eventId) {
          eventService.deleteEvent(eventId);
+    }
+
+    @PutMapping("/event/{eventId}")
+    public void updateEvent(@PathVariable Integer eventId,  @RequestBody Event event){
+        eventService.updateEvent(eventId, event);
     }
 
 }

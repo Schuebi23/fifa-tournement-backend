@@ -17,10 +17,16 @@ public class GameController {
     GameService gameService;
 
 
-    //    Get all Clubs
+    //    Get all Games
     @GetMapping("/games")
     public List<Game> getGames(){
         return gameService.getGames();
+    }
+
+    //    Get all Games with eventId
+    @GetMapping("/games/event/{eventId}")
+    public List<Game> getGamesByEventId(@PathVariable Integer eventId){
+        return gameService.getGamesByEvent(eventId);
     }
 
     // Get a specific Club
@@ -40,5 +46,10 @@ public class GameController {
     @PostMapping("/game/{eventId}/add")
     public Game addGame(@PathVariable Integer eventId ,@Valid @RequestBody Game game) {
                     return gameService.addGame(game);
+    }
+
+    @PutMapping("/game/{gameId}")
+    public Game updateGame(@PathVariable Integer gameId, @Valid @RequestBody Game game){
+        return gameService.updateGame(gameId, game);
     }
 }
