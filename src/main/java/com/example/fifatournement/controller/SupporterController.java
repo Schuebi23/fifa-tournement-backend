@@ -29,7 +29,7 @@ public class SupporterController {
         return supporterService.getSupporter(supporterId);
     }
 
-    @DeleteMapping("/supporter/delete/{supporterId}")
+    @DeleteMapping("/supporter/{supporterId}")
     public void deleteSupporter(
             @PathVariable Integer supporterId) {
          supporterService.deleteSupporter(supporterId);

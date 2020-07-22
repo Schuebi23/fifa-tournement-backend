@@ -5,6 +5,7 @@ import com.example.fifatournement.model.Supporter;
 import com.example.fifatournement.repository.IMemberRepository;
 import com.example.fifatournement.repository.ISupporterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public class MemberService {
 
     @Autowired
     IMemberRepository memberRepository;
+    ISupporterRepository supporterRepository;
 
     //    Get All members
     public List<Member> getMembers(){
@@ -31,7 +33,11 @@ public class MemberService {
     }
 
     // add a member
-    public Member addMember(Member member){
-        return memberRepository.save(member);
+    public Member addMember(Integer supporterId, Member member){
+       return supporterRepository.findById(supporterId).map(supporter -> {
+            member.setSupporter(supporter);
+            return memberRepository.save(member);
+        }).orElseThrow(() -> new ResourceNotFoundException("PostId " + supporterId + " not found"));
+
     }
 }

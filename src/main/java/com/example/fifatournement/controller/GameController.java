@@ -1,6 +1,8 @@
 package com.example.fifatournement.controller;
 
+import com.example.fifatournement.model.Game;
 import com.example.fifatournement.model.Member;
+import com.example.fifatournement.service.GameService;
 import com.example.fifatournement.service.MemberService;
 import com.example.fifatournement.service.SupporterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,32 +17,31 @@ import java.util.List;
 public class GameController {
 
     @Autowired
-    MemberService memberService;
-    SupporterService supporterService;
+    GameService gameService;
+
 
     //    Get all Clubs
-    @GetMapping("/members")
-    public List<Member> getMembers(){
-        return memberService.getMembers();
+    @GetMapping("/games")
+    public List<Game> getGames(){
+        return gameService.getGames();
     }
 
     // Get a specific Club
-    @GetMapping("/member/{memberId}")
-    public Member getMember(
-            @PathVariable Integer memberId){
-        return memberService.getMember(memberId);
+    @GetMapping("/game/{gameId}")
+    public Game getGame(
+            @PathVariable Integer gameId){
+        return gameService.getGame(gameId);
     }
 
     // delete a member
-    @DeleteMapping("/member/delete/{memberId}")
-    public void deleteMember(
-            @PathVariable Integer memberId) {
-         memberService.deleteMember(memberId);
+    @DeleteMapping("/game/{gameId}")
+    public void deleteGame(
+            @PathVariable Integer gameId) {
+         gameService.deleteGame(gameId);
     }
 
-    @PostMapping("/member/{supporterId}/add")
-    public Member addMember(@PathVariable Integer supporterId ,@Valid @RequestBody Member member) {
-                    member.setSupporter(supporterService.getSupporter(supporterId));
-                    return memberService.addMember(member);
+    @PostMapping("/game/{eventId}/add")
+    public Game addGame(@PathVariable Integer eventId ,@Valid @RequestBody Game game) {
+                    return gameService.addGame(game);
     }
 }

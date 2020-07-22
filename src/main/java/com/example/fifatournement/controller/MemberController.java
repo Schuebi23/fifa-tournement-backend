@@ -36,7 +36,7 @@ public class MemberController {
     }
 
     // delete a member
-    @DeleteMapping("/member/delete/{memberId}")
+    @DeleteMapping("/member/{memberId}")
     public void deleteMember(
             @PathVariable Integer memberId) {
          memberService.deleteMember(memberId);
@@ -45,6 +45,6 @@ public class MemberController {
     @PostMapping("/member/{supporterId}/add")
     public Member addMember(@PathVariable Integer supporterId ,@Valid @RequestBody Member member) {
                     member.setSupporter(supporterService.getSupporter(supporterId));
-                    return memberService.addMember(member);
+                    return memberService.addMember( supporterId, member);
     }
 }
