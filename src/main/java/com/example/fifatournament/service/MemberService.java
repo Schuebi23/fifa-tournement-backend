@@ -1,9 +1,8 @@
-package com.example.fifatournement.service;
+package com.example.fifatournament.service;
 
-import com.example.fifatournement.model.Member;
-import com.example.fifatournement.model.Supporter;
-import com.example.fifatournement.repository.IMemberRepository;
-import com.example.fifatournement.repository.ISupporterRepository;
+import com.example.fifatournament.repository.IMemberRepository;
+import com.example.fifatournament.model.Member;
+import com.example.fifatournament.repository.ISupporterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;

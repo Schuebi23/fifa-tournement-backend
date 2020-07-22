@@ -1,13 +1,10 @@
-package com.example.fifatournement.controller;
+package com.example.fifatournament.controller;
 
-import com.example.fifatournement.model.Event;
-import com.example.fifatournement.model.Game;
-import com.example.fifatournement.service.EventService;
-import com.example.fifatournement.service.GameService;
+import com.example.fifatournament.model.Event;
+import com.example.fifatournament.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController

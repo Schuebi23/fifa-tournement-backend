@@ -1,13 +1,9 @@
-package com.example.fifatournement.controller;
+package com.example.fifatournament.controller;
 
-import com.example.fifatournement.model.Member;
-import com.example.fifatournement.model.Supporter;
-import com.example.fifatournement.repository.IMemberRepository;
-import com.example.fifatournement.repository.ISupporterRepository;
-import com.example.fifatournement.service.MemberService;
-import com.example.fifatournement.service.SupporterService;
+import com.example.fifatournament.model.Member;
+import com.example.fifatournament.service.MemberService;
+import com.example.fifatournament.service.SupporterService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -44,10 +40,6 @@ public class MemberController {
 
     @PostMapping("/member/{supporterId}/add")
     public Member addMember(@PathVariable Integer supporterId ,@Valid @RequestBody Member member) {
-
-                    //Die zile bruchsch ni setzisch ja dr supporter im MemberService ine
-                    //member.setSupporter(supporterService.getSupporter(supporterId));
-
                     return memberService.addMember( supporterId, member);
     }
 }

@@ -1,10 +1,7 @@
-package com.example.fifatournement.controller;
+package com.example.fifatournament.controller;
 
-import com.example.fifatournement.model.Game;
-import com.example.fifatournement.model.Member;
-import com.example.fifatournement.service.GameService;
-import com.example.fifatournement.service.MemberService;
-import com.example.fifatournement.service.SupporterService;
+import com.example.fifatournament.model.Game;
+import com.example.fifatournament.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

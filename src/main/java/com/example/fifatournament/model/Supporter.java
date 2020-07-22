@@ -1,4 +1,4 @@
-package com.example.fifatournement.model;
+package com.example.fifatournament.model;
 
 import com.sun.istack.NotNull;
 

@@ -1,6 +1,6 @@
-package com.example.fifatournement.repository;
+package com.example.fifatournament.repository;
 
-import com.example.fifatournement.model.Game;
+import com.example.fifatournament.model.Game;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface IGameRepository extends JpaRepository<Game, Integer> {

@@ -1,6 +1,6 @@
-package com.example.fifatournement.repository;
+package com.example.fifatournament.repository;
 
-import com.example.fifatournement.model.Member;
+import com.example.fifatournament.model.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface IMemberRepository extends JpaRepository<Member, Integer> {

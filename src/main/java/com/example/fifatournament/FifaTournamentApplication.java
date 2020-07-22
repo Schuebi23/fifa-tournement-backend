@@ -1,13 +1,13 @@
-package com.example.fifatournement;
+package com.example.fifatournament;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FifaTournementApplication {
+public class FifaTournamentApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FifaTournementApplication.class, args);
+        SpringApplication.run(FifaTournamentApplication.class, args);
     }
 
 }

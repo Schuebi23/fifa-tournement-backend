@@ -1,8 +1,7 @@
-package com.example.fifatournement.service;
+package com.example.fifatournament.service;
 
-import com.example.fifatournement.model.Member;
-import com.example.fifatournement.model.Supporter;
-import com.example.fifatournement.repository.ISupporterRepository;
+import com.example.fifatournament.model.Supporter;
+import com.example.fifatournament.repository.ISupporterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
