@@ -12,6 +12,7 @@ public class Event {
 
     private String member_home;
     private String member_away;
+    private String name;
 
 
     @ManyToOne
@@ -21,11 +22,12 @@ public class Event {
     @JoinColumn(name = "supporter_away_id", nullable = true)
     private Supporter supporter_away;
 
-    public Event(String member_home, String member_away, Supporter supporter_home, Supporter supporter_away) {
+    public Event(String member_home, String member_away, Supporter supporter_home, Supporter supporter_away, String name) {
         this.member_home = member_home;
         this.member_away = member_away;
         this.supporter_home = supporter_home;
         this.supporter_away = supporter_away;
+        this.name = name;
 
     }
 
@@ -72,4 +74,13 @@ public class Event {
     public void setSupporter_away(Supporter supporter_away) {
         this.supporter_away = supporter_away;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }

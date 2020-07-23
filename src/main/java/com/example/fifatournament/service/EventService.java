@@ -42,6 +42,7 @@ public class EventService {
             foundEvent.setMember_home(updatedEvent.getMember_home());
             foundEvent.setSupporter_away(updatedEvent.getSupporter_away());
             foundEvent.setSupporter_home(updatedEvent.getSupporter_home());
+            foundEvent.setName(updatedEvent.getName());
             return eventRepository.save(foundEvent);
         }).orElseThrow(() -> new RuntimeException());
     }
