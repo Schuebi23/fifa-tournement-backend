@@ -2,8 +2,10 @@ package com.example.fifatournament.service;
 
 import com.example.fifatournament.model.Event;
 import com.example.fifatournament.model.Game;
+import com.example.fifatournament.repository.IEventRepository;
 import com.example.fifatournament.repository.IGameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +15,8 @@ public class GameService {
 
     @Autowired
     IGameRepository gameRepository;
+    @Autowired
+    IEventRepository eventRepository;
 
     //    Get All Games
     public List<Game> getGames(){
@@ -33,8 +37,11 @@ public class GameService {
     }
 
     // add a game
-    public Game addGame(Game game){
-        return gameRepository.save(game);
+    public Game addGame(Game game, Integer eventId){
+        return eventRepository.findById(eventId).map(event -> {
+            game.setEvent(event);
+            return gameRepository.save(game);
+        }).orElseThrow(() -> new ResourceNotFoundException("EventId: " + eventId + " not found"));
     }
 
     public Game updateGame(Integer gameId, Game updatedGame){

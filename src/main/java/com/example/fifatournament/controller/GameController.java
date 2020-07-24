@@ -36,7 +36,7 @@ public class GameController {
         return gameService.getGame(gameId);
     }
 
-    // delete a member
+    // delete a game
     @DeleteMapping("/game/{gameId}")
     public void deleteGame(
             @PathVariable Integer gameId) {
@@ -45,7 +45,7 @@ public class GameController {
 
     @PostMapping("/game/{eventId}/add")
     public Game addGame(@PathVariable Integer eventId ,@Valid @RequestBody Game game) {
-                    return gameService.addGame(game);
+                    return gameService.addGame(game, eventId);
     }
 
     @PutMapping("/game/{gameId}")
