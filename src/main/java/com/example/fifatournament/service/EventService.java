@@ -1,7 +1,9 @@
 package com.example.fifatournament.service;
 
 import com.example.fifatournament.model.Event;
+import com.example.fifatournament.model.Game;
 import com.example.fifatournament.repository.IEventRepository;
+import com.example.fifatournament.repository.IGameRepository;
 import com.example.fifatournament.repository.ISupporterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,8 @@ public class EventService {
     IEventRepository eventRepository;
     @Autowired
     ISupporterRepository supporterRepository;
+    @Autowired
+    GameService gameService;
 
     //    Get All Events
     public List<Event> getEvents(){
@@ -28,7 +32,13 @@ public class EventService {
 
     // delete a event
     public void deleteEvent(Integer eventId){
-       eventRepository.deleteById(eventId);
+        List<Game> games = this.gameService.getGames();
+        for (Game game: games) {
+            if(game.getEvent().getId() == eventId){
+                this.gameService.deleteGame(game.getId());
+            }
+        }
+        eventRepository.deleteById(eventId);
     }
 
     // add a event
