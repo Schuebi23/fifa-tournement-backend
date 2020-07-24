@@ -13,6 +13,8 @@ public class Event {
     private String member_home;
     private String member_away;
     private String name;
+    private int numberOfShots_home;
+    private int numberOfShots_away;
 
 
     @ManyToOne
@@ -22,12 +24,14 @@ public class Event {
     @JoinColumn(name = "supporter_away_id", nullable = true)
     private Supporter supporter_away;
 
-    public Event(String member_home, String member_away, Supporter supporter_home, Supporter supporter_away, String name) {
+    public Event(String member_home, String member_away, Supporter supporter_home, Supporter supporter_away, String name, int numberOfShots_home, int numberOfShots_away) {
         this.member_home = member_home;
         this.member_away = member_away;
         this.supporter_home = supporter_home;
         this.supporter_away = supporter_away;
         this.name = name;
+        this.numberOfShots_home = numberOfShots_home;
+        this.numberOfShots_away = numberOfShots_away;
 
     }
 
@@ -83,4 +87,19 @@ public class Event {
         this.name = name;
     }
 
+    public int getNumberOfShots_home() {
+        return numberOfShots_home;
+    }
+
+    public void setNumberOfShots_home(int numberOfShots_home) {
+        this.numberOfShots_home = numberOfShots_home;
+    }
+
+    public int getNumberOfShots_away() {
+        return numberOfShots_away;
+    }
+
+    public void setNumberOfShots_away(int numberOfShots_away) {
+        this.numberOfShots_away = numberOfShots_away;
+    }
 }

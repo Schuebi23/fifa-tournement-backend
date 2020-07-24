@@ -16,19 +16,14 @@ public class Supporter {
     @NotNull
     private String name;
 
-    private int numberOfShots;
-
     @OneToMany(mappedBy = "supporter")
     private List<Member> members;
 
-    public Supporter(@NotNull String name, int numberOfShots){
+    public Supporter(@NotNull String name){
         this.name = name;
-        this.numberOfShots = numberOfShots;
     }
 
     public Supporter() {
-
-
     }
 
     public String getName() {
@@ -37,14 +32,6 @@ public class Supporter {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getNumberOfShots() {
-        return numberOfShots;
-    }
-
-    public void setNumberOfShots(int numberOfShots) {
-        this.numberOfShots = numberOfShots;
     }
 
     public Integer getId() {

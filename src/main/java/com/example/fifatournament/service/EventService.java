@@ -43,6 +43,7 @@ public class EventService {
             foundEvent.setSupporter_away(updatedEvent.getSupporter_away());
             foundEvent.setSupporter_home(updatedEvent.getSupporter_home());
             foundEvent.setName(updatedEvent.getName());
+            foundEvent.setNumberOfShots_home(updatedEvent.getNumberOfShots_home());
             return eventRepository.save(foundEvent);
         }).orElseThrow(() -> new RuntimeException());
     }
