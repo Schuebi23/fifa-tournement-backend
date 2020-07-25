@@ -42,4 +42,9 @@ public class EventController {
         eventService.updateEvent(eventId, event);
     }
 
+    @PostMapping("/event/add")
+    public void createEvent(@RequestBody Event event){
+        eventService.addEvent(event);
+    }
+
 }

@@ -43,7 +43,13 @@ public class EventService {
 
     // add a event
     public Event addEvent(Event event){
-        return eventRepository.save(event);
+        return supporterRepository.findById(event.getSupporter_home().getId()).map(supporter -> {
+            event.setSupporter_home(supporter);
+            return supporterRepository.findById(event.getSupporter_away().getId()).map(sup_away -> {
+                event.setSupporter_away(sup_away);
+                return eventRepository.save(event);
+            }).orElseThrow(() -> new RuntimeException("could not find supporter with Id" + event.getSupporter_away().getId()));
+        }).orElseThrow(() -> new RuntimeException("could not find supporter with Id" + event.getSupporter_home().getId()));
     }
 
     public Event updateEvent(Integer eventId, Event updatedEvent){
