@@ -42,4 +42,9 @@ public class MemberController {
     public Member addMember(@PathVariable Integer supporterId ,@Valid @RequestBody Member member) {
                     return memberService.addMember( supporterId, member);
     }
+
+    @PutMapping("/member/{memberId}")
+    public Member updateMember(@PathVariable Integer memberId, @Valid @RequestBody Member member){
+        return memberService.updateMember(memberId, member);
+    }
 }

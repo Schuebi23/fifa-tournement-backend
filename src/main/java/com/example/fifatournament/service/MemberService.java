@@ -1,5 +1,6 @@
 package com.example.fifatournament.service;
 
+import com.example.fifatournament.model.Event;
 import com.example.fifatournament.repository.IMemberRepository;
 import com.example.fifatournament.model.Member;
 import com.example.fifatournament.repository.ISupporterRepository;
@@ -40,4 +41,16 @@ public class MemberService {
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + supporterId + " not found"));
 
     }
+
+    public Member updateMember(Integer memberId, Member updatedMember){
+            return memberRepository.findById(memberId).map(foundMember -> {
+                foundMember.setSupporter(updatedMember.getSupporter());
+                foundMember.setFirst_name(updatedMember.getFirst_name());
+                foundMember.setLast_name(updatedMember.getLast_name());
+                foundMember.setNickname(updatedMember.getNickname());
+                foundMember.setPicture(updatedMember.getPicture());
+                return memberRepository.save(foundMember);
+            }).orElseThrow(() -> new RuntimeException());
+        }
+
 }
